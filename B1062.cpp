@@ -7,16 +7,18 @@ int gcd(int a,int b){
 }
 int main(){
     double n1,m1,n2,m2,k;
-    int flag = 0;
+    int flag = 0,i;
     scanf("%lf/%lf %lf/%lf %lf",&n1,&m1,&n2,&m2,&k);
-    // int a = n1 / m1 + 0.5;
-    // int b = n2 / m2 + 0.5;
-    int a = round(n1 / m1 * k);
-    int b = round(n2 / m2 * k);
+    double a = n1 / m1 * k;
+    double b = n2 / m2 * k;
+    // int a = round(n1 / m1 * k);
+    // int b = round(n2 / m2 * k);
     if(a > b)  {
-        int t = a;a = b;b = t;
+        double t = a;a = b;b = t;
     }
-    for(int i = a;i <= b;i++){
+    if(round(a) == (int)a)   i = a + 1;
+    else    i = round(a);
+    for(;i < b;i++){
         if(gcd(i,k) == 1)  {
             // if(flag != 0)   cout<<" "<<i<<"/"<<k;
             if(flag != 0)   printf(" %d/%.0lf",i,k);
